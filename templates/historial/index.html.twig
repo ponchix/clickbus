@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Historial
+{% endblock %}
+
+{% block body %}
+	<div class="table-responsive">
+		<table class="table  text-white text-center my-5">
+			<thead class="bg-secondary">
+				<tr>
+					<th scope="col">Cantidad</th>
+					<th scope="col">Divisa Inicial</th>
+					<th scope="col">Nueva Cantidad</th>
+					<th scope="col">Nueva Divisa</th>
+					<th scope="col">Creación</th>
+				</tr>
+			</thead>
+			<tbody class="bg-secondary-subtle text-dark">
+				{% for conversion in conversiones %}
+					<tr>
+						<td>
+							{{ conversion. getAmount() }}
+						</td>
+						<td>
+							{{ conversion. getFromCurrency() }}
+						</td>
+						<td>
+							{{ conversion. getNewAmount() }}
+						</td>
+						<td>
+							{{ conversion. getToCurrency() }}
+						</td>
+						<td>
+							{{ conversion. getCreatedAt().format('d-M-Y H:i:s') }}
+						</td>
+
+
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+
+{% endblock %}

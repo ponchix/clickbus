@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Conversiones
+{% endblock %}
+
+{% block body %}
+	<div class="container bg-primary-subtle my-4 p-2 ">
+		{{ form_start(Form) }}
+		<div class="row contenedor">
+			<div class="col">
+				{{ form_label(Form.Cantidad) }}
+				{{ form_widget(Form.Cantidad) }}
+			</div>
+			<div class="col">
+				{{ form_label(Form.divisas) }}
+				{{ form_widget(Form.divisas) }}
+			</div>
+			<div class="col">
+				{{ form_widget(Form.Convertir) }}
+			</div>
+
+		</div>
+		{{ form_end(Form) }}
+		<table id="json-table" class="table bg-secondary text-white mt-5">
+			<thead>
+				<tr>
+					<th>Divisa Actual</th>
+					<th>Cantidad Actual</th>
+                    <th>Nueva Divisa</th>
+                    <th>Nueva Cantidad</th>
+				</tr>
+			</thead>
+			<tbody ></tbody>
+		</table>
+	</div>
+{% endblock %}
+{% block js %}
+	<script src="{{ asset('js/divisas.js') }}"></script>
+
+{% endblock %}
